@@ -1,0 +1,28 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "CRUD admins",
+    "collectionId": "e67609cd-4b4f-4e35-85c7-bf5d1ef1535d",
+    "dateExported": "2024-08-26T15:10:52.722Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "cf9092a2-2201-4049-a348-c25d963f3cbb",
+            "colId": "e67609cd-4b4f-4e35-85c7-bf5d1ef1535d",
+            "containerId": "",
+            "name": "Autenticar inicio de sesion",
+            "url": "http://127.0.0.1:5000/api/admins/authenticate",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-08-25T04:19:44.193Z",
+            "modified": "2024-08-25T04:38:18.939Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"user\": \"camilo_mercado\",\n  \"password\": \"cm78523\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "bhv6-25pFxzJ-oBqlF_2GGvUNWNnxpOAlZW8QH8PwLBbf5xLuNhL7wUfeabhAyZ0bKNaxC6hvdRaQnVwwnnM8w"
+}

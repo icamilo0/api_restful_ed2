@@ -1,0 +1,76 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "CRUD users",
+    "collectionId": "007311b3-582a-4ef2-9899-a0aeb07a5dfa",
+    "dateExported": "2024-08-26T15:10:24.024Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "82049981-eb61-4dbe-8b62-ea854b7c0e11",
+            "colId": "007311b3-582a-4ef2-9899-a0aeb07a5dfa",
+            "containerId": "",
+            "name": "Obtener todo los registros",
+            "url": "http://127.0.0.1:5000/api/users/all",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-08-24T19:33:35.771Z",
+            "modified": "2024-08-25T04:45:25.276Z",
+            "headers": []
+        },
+        {
+            "_id": "6d589eb3-6198-4649-8957-8c543629c108",
+            "colId": "007311b3-582a-4ef2-9899-a0aeb07a5dfa",
+            "containerId": "",
+            "name": "Obtener registros por id",
+            "url": "http://127.0.0.1:5000/api/users/2",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-08-24T19:35:08.414Z",
+            "modified": "2024-08-25T02:50:02.932Z",
+            "headers": []
+        },
+        {
+            "_id": "1e1be359-ee11-4ef7-9490-2d425f0c97b3",
+            "colId": "007311b3-582a-4ef2-9899-a0aeb07a5dfa",
+            "containerId": "",
+            "name": "Crear un registro",
+            "url": "http://127.0.0.1:5000/api/users",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-08-24T19:36:33.086Z",
+            "modified": "2024-08-25T02:50:08.716Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Rafael\",\n  \"documentId\": 1478523695\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "403b9101-f70c-49b9-8d19-05fd93ba9293",
+            "colId": "007311b3-582a-4ef2-9899-a0aeb07a5dfa",
+            "containerId": "",
+            "name": "Actualizar registros",
+            "url": "http://127.0.0.1:5000/api/users/1",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-08-24T22:53:30.104Z",
+            "modified": "2024-08-25T02:50:13.727Z",
+            "headers": []
+        },
+        {
+            "_id": "c822c784-74a2-4db7-8f3c-2bcc772daeb5",
+            "colId": "007311b3-582a-4ef2-9899-a0aeb07a5dfa",
+            "containerId": "",
+            "name": "Eliminar registros",
+            "url": "http://127.0.0.1:5000/api/users/7",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-08-24T22:54:54.766Z",
+            "modified": "2024-08-25T02:50:17.776Z",
+            "headers": []
+        }
+    ],
+    "ref": "rCXy4Que1bD4CX_yMMVnriyw74SwGwJfXZnIdCoN8r6x1ka4qzwFDEJOCdf9as1D5CAi1t2gFW5mAVS0iflVnw"
+}

@@ -1,0 +1,81 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "CRUD sales",
+    "collectionId": "534f12a2-7d39-43aa-97c4-01cbcecf7c0c",
+    "dateExported": "2024-08-26T15:10:48.216Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "e823a4fa-2d13-4c98-bb2a-5cd37f893f66",
+            "colId": "534f12a2-7d39-43aa-97c4-01cbcecf7c0c",
+            "containerId": "",
+            "name": "Obtener registros por id",
+            "url": "http://127.0.0.1:5000/api/sales/22",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-08-24T22:55:16.276Z",
+            "modified": "2024-08-25T04:38:46.221Z",
+            "headers": []
+        },
+        {
+            "_id": "09a03a97-72a6-4441-8f07-64a2161521e3",
+            "colId": "534f12a2-7d39-43aa-97c4-01cbcecf7c0c",
+            "containerId": "",
+            "name": "Crear un registro",
+            "url": "http://127.0.0.1:5000/api/sales",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-08-24T22:55:16.277Z",
+            "modified": "2024-08-25T02:48:47.089Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userId\": 10,\n  \"productId\": 4\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "ddebb4f6-23b1-4969-9493-1f3688f140b5",
+            "colId": "534f12a2-7d39-43aa-97c4-01cbcecf7c0c",
+            "containerId": "",
+            "name": "Actualizar registros",
+            "url": "http://127.0.0.1:5000/api/sales/2",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-08-24T22:55:16.278Z",
+            "modified": "2024-08-25T02:48:41.858Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userId\": 7,\n  \"productId\": 2,\n  \"purchaseDate\": \"CURRENT_TIMESTAMP\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "2f5bd629-2402-4b42-898a-5eed9d0dc753",
+            "colId": "534f12a2-7d39-43aa-97c4-01cbcecf7c0c",
+            "containerId": "",
+            "name": "Eliminar registros",
+            "url": "http://127.0.0.1:5000/api/sales/4",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-08-24T22:55:16.279Z",
+            "modified": "2024-08-25T02:48:35.665Z",
+            "headers": []
+        },
+        {
+            "_id": "4323e2a5-8be0-41e5-9a21-74d8cbef0b17",
+            "colId": "534f12a2-7d39-43aa-97c4-01cbcecf7c0c",
+            "containerId": "",
+            "name": "Obtener todo los registros",
+            "url": "http://127.0.0.1:5000/api/sales/all",
+            "method": "GET",
+            "sortNum": 60000,
+            "created": "2024-08-25T04:18:01.797Z",
+            "modified": "2024-08-25T04:18:01.797Z",
+            "headers": []
+        }
+    ],
+    "ref": "FsNW9LL3AsvmeSd5mMGFkYPgRzBTUTX26QGL4gdXOn-Yxcn93YHeTqI2UfCA3nCxOLnRFo0veXopkI_KwIS_WQ"
+}

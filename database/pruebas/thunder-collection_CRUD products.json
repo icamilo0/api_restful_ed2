@@ -1,0 +1,86 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "CRUD products",
+    "collectionId": "1591ef24-a7e7-4cba-8cfb-7e4edca601f7",
+    "dateExported": "2024-08-26T15:10:43.507Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "8de87fdf-9036-4cf0-965b-e6918bd0b187",
+            "colId": "1591ef24-a7e7-4cba-8cfb-7e4edca601f7",
+            "containerId": "",
+            "name": "Obtener todo los registros",
+            "url": "http://127.0.0.1:5000/api/products/all",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-08-24T22:55:03.450Z",
+            "modified": "2024-08-25T03:14:09.498Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n    \"name\": \"Oscar\",\n    \"documentId\": \"0147895623\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "443d8e00-27f4-4d29-8220-54140320cc0e",
+            "colId": "1591ef24-a7e7-4cba-8cfb-7e4edca601f7",
+            "containerId": "",
+            "name": "Obtener registros por id",
+            "url": "http://127.0.0.1:5000/api/products/44",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-08-24T22:55:03.452Z",
+            "modified": "2024-08-25T04:44:01.885Z",
+            "headers": []
+        },
+        {
+            "_id": "19fc30d3-4899-4962-a94e-b005d397a86c",
+            "colId": "1591ef24-a7e7-4cba-8cfb-7e4edca601f7",
+            "containerId": "",
+            "name": "Crear un registro",
+            "url": "http://127.0.0.1:5000/api/products",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-08-24T22:55:03.453Z",
+            "modified": "2024-08-25T02:49:28.826Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"userId\": 1,\n  \"productId\": 2,\n  \"purchaseDate\": \"CURRENT_DATE\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "5d8359c9-eca8-4886-86a2-cf382f2522dd",
+            "colId": "1591ef24-a7e7-4cba-8cfb-7e4edca601f7",
+            "containerId": "",
+            "name": "Actualizar registros",
+            "url": "http://127.0.0.1:5000/api/products/1",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2024-08-24T22:55:03.454Z",
+            "modified": "2024-08-25T02:49:33.960Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"description\" : \"Balón de futbol\",\n  \"cost\": 50000\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "52ffbe16-abe5-4c53-bc73-6694574c70ea",
+            "colId": "1591ef24-a7e7-4cba-8cfb-7e4edca601f7",
+            "containerId": "",
+            "name": "Eliminar registros",
+            "url": "http://127.0.0.1:5000/api/products/1",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2024-08-24T22:55:03.455Z",
+            "modified": "2024-08-25T02:49:44.861Z",
+            "headers": []
+        }
+    ],
+    "ref": "ChiQIFdH2GrmxyddrhXkcMG-6BEGxIO81EIDCRtSdm1c78NdKiAOg2pb1U7oaI0CLypImO5IE0LRmlQ4MsRgCQ"
+}
