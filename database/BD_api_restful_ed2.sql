@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 26-08-2024 a las 17:49:32
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.0.28
+-- Tiempo de generación: 28-08-2024 a las 08:12:28
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,45 +24,54 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `admins`
+-- Estructura de tabla para la tabla `accesshistory`
 --
 
-CREATE TABLE `admins` (
-  `adminId` int(11) NOT NULL,
-  `user` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `added` datetime NOT NULL DEFAULT current_timestamp(),
-  `modified` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `active` tinyint(1) NOT NULL DEFAULT 1
+CREATE TABLE `accesshistory` (
+  `accessHistoryId` int(11) NOT NULL,
+  `adminId` int(11) DEFAULT NULL,
+  `accessTime` datetime NOT NULL DEFAULT current_timestamp(),
+  `state` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Volcado de datos para la tabla `admins`
+-- Volcado de datos para la tabla `accesshistory`
 --
 
-INSERT INTO `admins` (`adminId`, `user`, `password`, `added`, `modified`, `active`) VALUES
-(1, 'camilo_mercado', 'cm78523', '2024-08-26 10:25:25', '2024-08-26 10:48:11', 0),
-(2, 'melanny_ruz', 'mr78523', '2024-08-26 10:25:33', '2024-08-26 10:25:33', 1);
+INSERT INTO `accesshistory` (`accessHistoryId`, `adminId`, `accessTime`, `state`) VALUES
+(1, 1, '2024-08-28 01:09:32', 'success'),
+(2, NULL, '2024-08-28 01:11:00', 'failure');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `admins`
+-- Indices de la tabla `accesshistory`
 --
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`adminId`);
+ALTER TABLE `accesshistory`
+  ADD PRIMARY KEY (`accessHistoryId`),
+  ADD KEY `fk_adminId` (`adminId`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `admins`
+-- AUTO_INCREMENT de la tabla `accesshistory`
 --
-ALTER TABLE `admins`
-  MODIFY `adminId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+ALTER TABLE `accesshistory`
+  MODIFY `accessHistoryId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `accesshistory`
+--
+ALTER TABLE `accesshistory`
+  ADD CONSTRAINT `fk_adminId` FOREIGN KEY (`adminId`) REFERENCES `admins` (`adminId`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

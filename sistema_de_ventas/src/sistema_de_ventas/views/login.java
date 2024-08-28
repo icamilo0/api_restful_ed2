@@ -1,8 +1,7 @@
 package sistema_de_ventas.views;
 
 // Liberias a usar
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.Color;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -13,8 +12,6 @@ public class login extends javax.swing.JFrame {
     
     public login() {
         initComponents();
-        
-        
     }
 
     /**
@@ -47,6 +44,8 @@ public class login extends javax.swing.JFrame {
         jLabel2.setText("SISTEMA DE GESTIÓN DE VENTAS");
 
         jlabUsername.setText("Ingrese su usuario:");
+
+        jtxtUsername.setFont(new java.awt.Font("Segoe UI", 0, 11)); // NOI18N
 
         jlabPassword.setText("Ingrese su contraseña:");
 
@@ -134,49 +133,29 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbtnEnterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnEnterActionPerformed
-        
+        // Definir variables donde se guardan los datos ingresados en los campos de texto
+        String user = jtxtUsername.getText();
+        String password = new String(jtxtPassword.getPassword());
+
+        try {
+            // Se llama al metodo para la autentificación de credenciales
+            boolean authe = authenticate(user, password);
+
+            if (authe) {
+                
+            } else {
+                jlabMessage.setText("Credenciales incorrectos. Corrija, por favor.");
+                jtxtPassword.setText("");
+                jtxtUsername.setText("");
+            }
+        } catch (Exception ex) {
+            jlabMessage.setText("Error de conexión: "+ ex.getMessage());
+        }
     }//GEN-LAST:event_jbtnEnterActionPerformed
 
     private void jbtnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbtnExitActionPerformed
-        
+        System.exit(0);
     }//GEN-LAST:event_jbtnExitActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> {
-            new login().setVisible(true);
-        });
-    }
-    
-    public void setJlabMessage(String message) {
-        jlabMessage.setText(message);
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -190,4 +169,36 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField jtxtPassword;
     private javax.swing.JTextField jtxtUsername;
     // End of variables declaration//GEN-END:variables
+
+    private boolean authenticate(String user, String password) throws Exception {
+        // Instanciar URL de la API - Conexión con la tabla 'admin'
+        URL url_admin = new URL("http://localhost:5000/api/admins/authenticate");
+        
+        // Establecer la conexión con la API
+        HttpURLConnection connect_api = (HttpURLConnection) url_admin.openConnection();
+        connect_api.setRequestMethod("POST");
+        connect_api.setRequestProperty("Content-Type", "application/json; utf-8");
+        connect_api.setDoOutput(true);
+        
+        //Crear el JSON con los datos de usuario y contraseña
+        String jsonInputString = String.format("{\"user\": \"%s\", \"password\": \"%s\"}", user, password);
+        
+        // Enviar la solicitud al servidor
+        try (OutputStream os = connect_api.getOutputStream()) {
+            byte[] input = jsonInputString.getBytes(StandardCharsets.UTF_8);
+            os.write(input, 0, input.length);
+        }
+        
+        // Leer la respuesta de la API
+        int responseCode = connect_api.getResponseCode();
+        switch (responseCode) {
+            case 200 -> {
+                return true;
+            }
+            case 404 -> {
+                return false;
+            }
+            default -> throw new Exception("Error en la API: "+ responseCode);
+        }
+    }
 }
